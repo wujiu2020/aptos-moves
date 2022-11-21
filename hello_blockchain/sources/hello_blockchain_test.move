@@ -1,11 +1,11 @@
 #[test_only]
-module hello_blockchain::message_tests {
+module 0x43501e1d605075a7cd7047f735224beafb6f67c30b391315ff376374f39c1109::message_tests {
     use std::signer;
     use std::unit_test;
     use std::vector;
     use std::string;
 
-    use hello_blockchain::message;
+    use 0x43501e1d605075a7cd7047f735224beafb6f67c30b391315ff376374f39c1109::message;
 
     fun get_account(): signer {
         vector::pop_back(&mut unit_test::create_signers_for_testing(1))
