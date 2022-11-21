@@ -1,0 +1,9 @@
+[package]
+name = "hello_blockchain"
+version = "0.0.0"
+
+[addresses]
+hello_blockchain = "0x43501e1d605075a7cd7047f735224beafb6f67c30b391315ff376374f39c1109"
+
+[dependencies]
+AptosFramework = { local = "../../framework/aptos-framework" }
