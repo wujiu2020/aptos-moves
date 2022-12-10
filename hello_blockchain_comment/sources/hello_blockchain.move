@@ -1,35 +1,9 @@
-module 0x43501e1d605075a7cd7047f735224beafb6f67c30b391315ff376374f39c1109::message {
+module hello_blockchain::message {
     use std::error;
     use std::signer;
     use std::string;
     use aptos_framework::account;
     use aptos_framework::event;
-    // 数组
-    use std::Vector;
-    /*
-        // use generics to create an emtpy vector
-        let a = Vector::empty<&u8>();
-        let i = 0;
-
-        // let's fill it with data
-        while (i < 10) {
-            Vector::push_back(&mut a, i);
-            i = i + 1;
-        }
-
-        // now print vector length
-        let a_len = Vector::length(&a);
-        0x1::Debug::print<u64>(&a_len);
-
-        // then remove 2 elements from it
-        Vector::pop_back(&mut a);
-        Vector::pop_back(&mut a);
-
-        // and print length again
-        let a_len = Vector::length(&a);
-        0x1::Debug::print<u64>(&a_len);
-    */
-
 /*
 这四种 abilities 限制符分别是: Copy, Drop, Store 和 Key.
 - Copy - 被修饰的值可以被复制。
