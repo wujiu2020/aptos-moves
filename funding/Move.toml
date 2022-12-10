@@ -1,0 +1,11 @@
+[package]
+name = "funding"
+version = "0.0.0"
+
+[addresses]
+# Std = "0x43501e1d605075a7cd7047f735224beafb6f67c30b391315ff376374f39c1109"
+Std = "0x1"
+# Std = "_"
+
+[dependencies]
+AptosFramework = { local = "/Users/wujiu/Develop/Project/Aptos/aptos-core/aptos-move/framework/aptos-framework" }
