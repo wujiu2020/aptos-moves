@@ -50,17 +50,19 @@ module Std::reminder_list {
         if (!exists<ReminderList>(account_addr)) {
             let reminders = table::new<u64,string::String>();
             table::add(&mut reminders,id,title);
-            event::emit_event(&mut old_reminder_list.reminder_add_events, ReminderAddEvent {
-                id,
-                title,
-            });
             move_to(&account, ReminderList {
                 reminders: reminders,
                 reminder_add_events: account::new_event_handle<ReminderAddEvent>(&account),
                 reminder_delete_events: account::new_event_handle<ReminderDeleteEvent>(&account),
-            })
+            });
+            let reminder_list = borrow_global_mut<ReminderList>(account_addr);
+            event::emit_event(&mut reminder_list.reminder_add_events, ReminderAddEvent {
+                id,
+                title,
+            });
         } else {
             let old_reminder_list = borrow_global_mut<ReminderList>(account_addr);
+            assert!(!table::contains(&mut old_reminder_list.reminders,id),0);
             event::emit_event(&mut old_reminder_list.reminder_add_events, ReminderAddEvent {
                 id,
                 title,
